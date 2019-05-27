@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="main.js"></script>
+    <style>
+        .instagramFeed {
+            padding-bottom: 40px;
+            border-bottom: 1px dotted #666666;
+        }
+
+        #instafeed {
+            position: relative;
+            width: 108%;
+            max-width: 108%;
+            z-index: 999;
+        }
+
+        #instafeed img {
+            position: relative;
+            width: 20%;
+            max-width: 100%;
+            margin-right: 4.5%;
+            margin-top: 4.5%;
+        }
+
+        #mybutton {
+            position: absolute;
+            z-index: 999;
+            display: block;
+            width: 300px;
+            text-align: center;
+            color: #fff;
+            background: #555;
+            padding: 15px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="instagramFeed row">
+        <div id="instafeed"></div>
+        <!-- <a href="#" id="mybutton">Load More...</a> ab4f25359529471c98df9e30da232403 -->
+    </div>
+</body>
+<script type="text/javascript">
+    var feed = new Instafeed({
+        target: 'instafeed',
+        get: 'user',
+        userId: 3035887023,
+        //tagName: 'love',
+        accessToken: '3035887023.8a28ba0.0dcf693a4a984b3ab2de486699a6ecf4',
+        clientId: '8a28ba0ccbf4446a8239ba657beef432',
+        limit: '12',
+        sortBy: 'most-recent',
+        link: 'true',
+        template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
+        resolution: 'standard_resolution',
+        // after : function() {  console.log('a'); },
+        // filter: function(image) {
+        //  return image.tags && image.tags.indexOf('mrancho') >= 0;
+        // } // filters the user's medias and get the ones with the specified #hashtag = mrancho
+    });
+    feed.run();
+</script>
+
+</html>
