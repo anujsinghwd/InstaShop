@@ -1,11 +1,12 @@
-var request = require("request");
+const request = require("request");
+const { access_token, ApiUrl } = require("../config");
 
 function getPosts(params, callback) {
-    var options = {
+    let options = {
         method: 'GET',
-        url: 'https://api.instagram.com/v1/users/self/media/recent/',
+        url: ApiUrl,
         qs: {
-            access_token: '13990117643.e3c5770.1ea0dcc385a445bf983a1ae02a30dd2c',
+            access_token: access_token,
             count: 9
         }
     };
@@ -30,6 +31,7 @@ function getPosts(params, callback) {
             let description = '';
             let video = false;
             let carousel = false;
+            let next = false;
             if(e.caption != null){
                 e.caption.text.split('|').forEach(f => {
                     if(f.toLowerCase().indexOf('name') !== -1){
@@ -75,8 +77,12 @@ function getPosts(params, callback) {
                 carousel: carousel
             }
             result.push(resp_data);
-        })
-        callback({data: true, response: result});
+        });
+        
+        if(res.pagination.length != 'undefined'){
+            next = res.pagination.next_max_id;
+        }
+        callback({data: true, response: result, next_id: next});
     });
 
 }

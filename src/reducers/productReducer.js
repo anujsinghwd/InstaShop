@@ -2,6 +2,7 @@ import { GET_PRODUCTS, LOADING } from '../actions/types';
 
 const initialState = {
     products: null,
+    pages: [],
     loading: false
 }
 
@@ -13,6 +14,7 @@ export default function(state = initialState, action) {
                 loading: true
             }
         case GET_PRODUCTS:
+            if(action.payload.next_id) state.pages.push(action.payload.next_id);
             return {
                 ...state,
                 products: action.payload,
