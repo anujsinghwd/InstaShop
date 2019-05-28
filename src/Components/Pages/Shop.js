@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
-import axios from "axios";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import PageTitle from '../Common/PageTitle';
 import ProductList from '../Common/ProductList';
+import { getProducts } from '../../actions/ProductAction';
 
 class Shop extends Component {
 
@@ -12,14 +14,19 @@ class Shop extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+      if(!nextProps.products.loading){
+        if(nextProps.products.products.data){
+          this.setState({lists: nextProps.products.products});
+        }
+      }
+  }
+  
   componentDidMount(){
-    axios.get('http://localhost:5000/api/posts')
-        .then((res) => {
-            this.setState({lists: res.data});
-        })
-        .catch(err => console.log(err));
+    this.props.getProducts();
   }
   render() {
+    
     return (
       <div>
         <PageTitle />
@@ -29,4 +36,13 @@ class Shop extends Component {
   }
 }
 
-export default Shop;
+Shop.propTypes = {
+  getProducts: PropTypes.func.isRequired,
+  products: PropTypes.object.isRequired
+}
+
+const mapStateToProp = state => ({
+    products: state.products
+});
+
+export default connect(mapStateToProp, { getProducts })(Shop);

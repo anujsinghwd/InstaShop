@@ -1,65 +1,52 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class RelatedProduct extends Component {
-  render() {
-	const data = this.props.data;
-	if(data.response.length > 6){
-		data.response = data.response.splice(0, 5);
-	}
-    return (
-        <section class="relateproduct bgwhite p-t-45 p-b-138">
-		<div class="container">
-			<div class="sec-title p-b-60">
-				<h3 class="m-text5 t-center">
-					Related Products
-				</h3>
-			</div>
+	render() {
+		const data = this.props.data;
+		return (
+			<div className="item-slick2 p-l-15 p-r-15 slick-slide slick-cloned" tabindex="-1" style={{ width: '300px' }} data-slick-index="-3" aria-hidden="true">
+				<div className="block2">
+					<div className="block2-img wrap-pic-w of-hidden pos-relative">
+						<img src={`${data.images.low}`} alt="IMG-PRODUCT" />
+						<div className="block2-overlay trans-0-4">
+							<a href="#" className="block2-btn-addwishlist hov-pointer trans-0-4" tabindex="-1">
+								<i className="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+								<i className="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+							</a>
+							<div className="block2-btn-addcart w-size1 trans-0-4">
 
-			
-			<div class="wrap-slick2">
-				<div class="slick2">
-
-					<div class="item-slick2 p-l-15 p-r-15">
-						
-						<div class="block2">
-							<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-								<img src="images/item-02.jpg" alt="IMG-PRODUCT" />
-
-								<div class="block2-overlay trans-0-4">
-									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-									</a>
-
-									<div class="block2-btn-addcart w-size1 trans-0-4">
-										
-										<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-											Add to Cart
-										</button>
-									</div>
-								</div>
-							</div>
-
-							<div class="block2-txt p-t-20">
-								<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-									Herschel supply co 25l
-								</a>
-
-								<span class="block2-price m-text6 p-r-5">
-									$75.00
-								</span>
+								<Link to={{
+                            pathname: '/detail',
+                            state: {
+                                data: this.props.data,
+                                response: this.props.response
+                            }
+                            }} className="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" tabindex="-1">
+									View
+																		</Link>
 							</div>
 						</div>
 					</div>
-					
-
+					<div className="block2-txt p-t-20">
+						<a href="product-detail.html" className="block2-name dis-block s-text3 p-b-5" tabindex="-1">
+							{data.name}
+															</a>
+						<span className="block2-price m-text6 p-r-5">
+							{data.price} INR
+															</span>
+					</div>
 				</div>
 			</div>
-
-		</div>
-	</section>
-    )
-  }
+		)
+	}
 }
+{/* <Link to={{
+                            pathname: '/detail',
+                            state: {
+                                data: this.props.data,
+                                response: this.props.response
+                            }
+                            }} className="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"></Link> */}
 
 export default RelatedProduct;

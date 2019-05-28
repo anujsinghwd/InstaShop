@@ -10,9 +10,11 @@ function getPosts(params, callback) {
         }
     };
     request(options, function (error, response, body) {
-        if (error) throw new Error(error);
+        if (error){
+            callback({data: false, response: 'No Data Found'});
+        }
         let result = new Array();
-        let res = JSON.parse(body); 
+        let res = JSON.parse(body);
         res.data.map((e) => {
             let images = {
                     high: e.images.standard_resolution.url,
