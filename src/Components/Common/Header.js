@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
@@ -31,9 +32,9 @@ class Header extends Component {
           </div>
 
           <div className="wrap_header">
-            <a href="index.html" className="logo">
+            <Link to={"/"} className="logo">
               <img src="images/icons/logo.png" alt="IMG-LOGO" />
-            </a>
+            </Link>
 
             <div className="wrap_menu">
               <nav className="menu">

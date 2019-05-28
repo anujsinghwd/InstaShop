@@ -5,20 +5,23 @@ import store from './store';
 import { Provider } from 'react-redux';
 import Header from './Components/Common/Header';
 import Shop from './Components/Pages/Shop';
-import DetailPage from './Components/Pages/DetailPage';
 import ScrollToTop from './Components/Common/ScrollToTop';
+import ProductDetail from './Components/Common/ProductDetail';
+import DetailPage from './Components/Pages/DetailPage';
+import Footer from './Components/Common/Footer';
 
 class App extends Component {
   render(){
     return (
       <div>
-        <Header />
         <Provider store={ store }>
           <Router>  
+              <Header />
               <ScrollToTop>
                 <Route exact path="/" component={Shop} />
                 <Route exact path="/detail" component={DetailPage} />
               </ScrollToTop>
+              <Footer />
           </Router>
         </Provider>
       </div>
