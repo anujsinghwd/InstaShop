@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import store from './store';
 import { Provider } from 'react-redux';
 import Header from './Components/Common/Header';
 import Shop from './Components/Pages/Shop';
 import ScrollToTop from './Components/Common/ScrollToTop';
-import ProductDetail from './Components/Common/ProductDetail';
 import DetailPage from './Components/Pages/DetailPage';
 import Footer from './Components/Common/Footer';
 

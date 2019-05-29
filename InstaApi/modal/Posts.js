@@ -1,14 +1,22 @@
 const request = require("request");
-const { access_token, ApiUrl } = require("../config");
+const { credentials } = require("../config");
 
 function getPosts(params, callback) {
+    let API_URL = credentials.api_url; 
+    let req = {
+        access_token: credentials.access_token,
+        count: 9
+    }
+    if(params.next_id){
+        req.max_id = params.next_id;
+        API_URL = `https://api.instagram.com/v1/users/${credentials.user_id}/media/recent`
+    }
+    let next_page = false;
+    let prev_page = API_URL;
     let options = {
         method: 'GET',
-        url: ApiUrl,
-        qs: {
-            access_token: access_token,
-            count: 9
-        }
+        url: API_URL,
+        qs: req
     };
     request(options, function (error, response, body) {
         if (error){
@@ -31,7 +39,6 @@ function getPosts(params, callback) {
             let description = '';
             let video = false;
             let carousel = false;
-            let next = false;
             if(e.caption != null){
                 e.caption.text.split('|').forEach(f => {
                     if(f.toLowerCase().indexOf('name') !== -1){
@@ -79,10 +86,10 @@ function getPosts(params, callback) {
             result.push(resp_data);
         });
         
-        if(res.pagination.length != 'undefined'){
-            next = res.pagination.next_max_id;
+        if(res.pagination.length !== 'undefined'){
+            next_page = res.pagination.next_max_id;
         }
-        callback({data: true, response: result, next_id: next});
+        callback({data: true, response: result, next_id: next_page});
     });
 
 }

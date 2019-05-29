@@ -10,8 +10,8 @@ router.get('/test', (req, res) => {
     res.json({msg: "posts works"});
 });
 
-router.get('/', (req, res) => {
-    posts.getPosts({}, (rest) => {
+router.post('/', (req, res) => {
+    posts.getPosts(req.body, (rest) => {
         res.json(rest);
     })
 })
