@@ -24,6 +24,7 @@ function getPosts(params, callback) {
         }
         let result = new Array();
         let res = JSON.parse(body);
+        //callback(res);
         res.data.map((e) => {
             let images = {
                     high: e.images.standard_resolution.url,
@@ -61,13 +62,27 @@ function getPosts(params, callback) {
             }
             if(e.type === 'carousel'){
                 let carousel_media = [];
-                e.carousel_media.map((cm) => {
-                    carousel_media.push({
-                        high: cm.images.standard_resolution.url,
-                        low: cm.images.low_resolution.url,
-                        thumbnail: cm.images.thumbnail.url
-                    });
-                });
+                //console.log(carousel_media.length);
+                // if(e.carousel_media.videos){
+                //     e.carousel_media.map((cm) => {
+                //         carousel_media.push({
+                //             high: cm.carousel_media.videos.standard_resolution.url,
+                //             low: cm.carousel_media.videos.low_resolution.url,
+                //             thumbnail: cm.carousel_media.videos.low_bandwidth.url
+                //         });
+                //     });
+                // }
+                // else
+                // {
+                //     e.carousel_media.map((cm) => {
+                //         // carousel_media.push({
+                //         //     high: cm.carousel_media[0].images.standard_resolution.url,
+                //         //     low: cm.carousel_media[0].images.low_resolution.url,
+                //         //     thumbnail: cm.carousel_media[0].images.thumbnail.url
+                //         // });
+                //     });
+                // }
+                
                 carousel = carousel_media;
             }
             let resp_data = {
