@@ -61,29 +61,41 @@ function getPosts(params, callback) {
                 }
             }
             if(e.type === 'carousel'){
-                let carousel_media = [];
-                //console.log(carousel_media.length);
-                // if(e.carousel_media.videos){
-                //     e.carousel_media.map((cm) => {
-                //         carousel_media.push({
-                //             high: cm.carousel_media.videos.standard_resolution.url,
-                //             low: cm.carousel_media.videos.low_resolution.url,
-                //             thumbnail: cm.carousel_media.videos.low_bandwidth.url
-                //         });
-                //     });
-                // }
-                // else
-                // {
-                //     e.carousel_media.map((cm) => {
-                //         // carousel_media.push({
-                //         //     high: cm.carousel_media[0].images.standard_resolution.url,
-                //         //     low: cm.carousel_media[0].images.low_resolution.url,
-                //         //     thumbnail: cm.carousel_media[0].images.thumbnail.url
-                //         // });
-                //     });
-                // }
-                
-                carousel = carousel_media;
+                //let carousel_media;
+                let video = [];
+                let image = [];
+                e.carousel_media.map((cm) => {
+                    if(cm.type === 'video')
+                    {
+                        video.push({
+                            high: cm.videos.standard_resolution.url,
+                            low: cm.videos.low_resolution.url,
+                            thumbnail: cm.videos.low_bandwidth.url
+                        });
+                    }
+                    if(cm.type === 'image')
+                    {
+                        image.push({
+                            high: cm.images.standard_resolution.url,
+                            low: cm.images.low_resolution.url,
+                            thumbnail: cm.images.thumbnail.url
+                        });
+                    }
+                });
+
+                if(video.length, image.length){
+                    e.carousel_media.map((cm) => {
+                        if(cm.type === 'image'){
+                            images = {
+                                high: cm.images.standard_resolution.url,
+                                low: cm.images.low_resolution.url,
+                                thumbnail: cm.images.thumbnail.url
+                            }
+                        }
+                    });
+                    
+                }
+                carousel = {videos: video, images: image};
             }
             let resp_data = {
                 id: e.id,
