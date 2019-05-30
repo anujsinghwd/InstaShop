@@ -33,9 +33,15 @@ class Card extends Component {
             </div>
 
             <div className="block2-txt p-t-20">
-                <a href="product-detail.html" className="block2-name dis-block s-text3 p-b-5">
+                <Link to={{
+                            pathname: '/detail',
+                            state: {
+                                data: this.props.data,
+                                response: this.props.response
+                            }
+                            }} className="block2-name dis-block s-text3 p-b-5">
                     {data.name}
-                </a>
+                </Link>
 
                 <span className="block2-price m-text6 p-r-5">
                     {data.price} INR

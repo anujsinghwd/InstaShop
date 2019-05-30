@@ -62,9 +62,9 @@ class DetailPage extends Component {
                         <span className="m-text17">
                             {data.price} INR
          </span>
-                        {/* <p className="s-text8 p-t-10">
-                            {data.description}
-         </p> */}
+                {
+                   data.description.map(e => <p className="s-text8 p-t-10">{e}</p>)
+                }
 
                         <div className="p-t-33 p-b-60">
                             <div className="flex-m flex-w p-b-10">
@@ -129,56 +129,17 @@ class DetailPage extends Component {
                                     <i className="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
                                 </h5>
                                 <div className="dropdown-content dis-none p-t-15 p-b-23" style={{display: 'block'}}>
-                                    <p className="s-text8">
-                                    {data.description}
-               </p>
+               {/* {
+                   data.description.map(e => <p>{e}</p>)
+               } */}
+            
                                 </div>
                             </div>
-                            <div className="wrap-dropdown-content bo7 p-t-15 p-b-14">
-                                <h5 className="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-                                    Additional information
-               <i className="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-                                    <i className="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-                                </h5>
-                                <div className="dropdown-content dis-none p-t-15 p-b-23">
-                                    <p className="s-text8">
-                                        Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
-               </p>
-                                </div>
-                            </div>
-                            <div className="wrap-dropdown-content bo7 p-t-15 p-b-14">
-                                <h5 className="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-                                    Reviews (0)
-               <i className="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-                                    <i className="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-                                </h5>
-                                <div className="dropdown-content dis-none p-t-15 p-b-23">
-                                    <p className="s-text8">
-                                        Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
-               </p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
-				{/* <section className="relateproduct bgwhite p-t-45 p-b-138">
-					<div className="container">
-						<div className="sec-title p-b-60">
-							<h3 className="m-text5 t-center">
-								Related Products
-				</h3>
-						</div>
-
-
-						<div className="wrap-slick2">
-							<div className="slick2">
-								{
-									cards
-								}
-							</div>
-						</div>
-					</div>
-				</section> */}
+				
 				<section className="relateproduct bgwhite p-t-45 p-b-138">
 			<div className="container">
 				 <div className="sec-title p-b-60">
@@ -206,12 +167,3 @@ class DetailPage extends Component {
 }
 
 export default DetailPage;
-// DetailPage.propTypes = {
-// 	products: PropTypes.object.isRequired
-// }
-
-// const mapStateToProp = state => ({
-// 	products: state.products
-// });
-  
-// export default connect(mapStateToProp, { })(DetailPage);

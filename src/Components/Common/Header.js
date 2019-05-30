@@ -33,7 +33,8 @@ class Header extends Component {
 
           <div className="wrap_header">
             <Link to={"/"} className="logo">
-              <img src="images/icons/logo.png" alt="IMG-LOGO" />
+              {/* <img src="images/icons/logo.png" alt="IMG-LOGO" /> */}
+              <i class="fa fa-angellist"></i> <b>WishList</b>
             </Link>
 
             <div className="wrap_menu">
@@ -179,9 +180,9 @@ class Header extends Component {
         </div>
 
         <div className="wrap_header_mobile">
-          <a href="index.html" className="logo-mobile">
-            <img src="images/icons/logo.png" alt="IMG-LOGO" />
-          </a>
+          <Link to={"/"} className="logo-mobile">
+            <i class="fa fa-angellist"></i> <b>WishList</b>
+          </Link>
 
           <div className="btn-show-menu">
             <div className="header-icons-mobile">

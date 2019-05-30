@@ -48,7 +48,12 @@ function getPosts(params, callback) {
                         price = f.split('-')[1].trim().toUpperCase();
                     }
                     if(f.toLowerCase().indexOf('description') !== -1){
-                        description = f.split('-')[1].trim().toUpperCase();
+                        let desc = f.split('-')[1].trim().split('~');
+                        let features = [];
+                        desc.map((er) => {
+                            if(er.length > 0) features.push(er.trim().replace('>', ' - '));
+                        })
+                        description = features;
                     }
                 });
             }
