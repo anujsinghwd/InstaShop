@@ -12,7 +12,7 @@ function getPosts(params, callback) {
         API_URL = `https://api.instagram.com/v1/users/${credentials.user_id}/media/recent`
     }
     let next_page = false;
-    let prev_page = API_URL;
+    let prev_page = false;
     let options = {
         method: 'GET',
         url: API_URL,
@@ -24,7 +24,6 @@ function getPosts(params, callback) {
         }
         let result = new Array();
         let res = JSON.parse(body);
-        //callback(res);
         res.data.map((e) => {
             let images = {
                     high: e.images.standard_resolution.url,
@@ -116,7 +115,7 @@ function getPosts(params, callback) {
         if(res.pagination.length !== 'undefined'){
             next_page = res.pagination.next_max_id;
         }
-        callback({data: true, response: result, next_id: next_page});
+        callback({data: true, response: result, next_id: next_page, prev_id: prev_page});
     });
 
 }
