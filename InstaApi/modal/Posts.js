@@ -96,7 +96,12 @@ function getPosts(params, callback) {
                             }
                         }
                     });
-                    
+                }
+                if(video.length === 0){
+                    video = false;
+                }
+                if(image.length === 0){
+                    image = false;
                 }
                 carousel = {videos: video, images: image};
             }
