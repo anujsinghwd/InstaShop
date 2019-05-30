@@ -3,7 +3,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 import RelatedProduct from '../Common/RelatedProduct';
 import ImageGallery from 'react-image-gallery';
-
+import ReactPlayer from 'react-player';
 
 
 class DetailPage extends Component {
@@ -12,13 +12,18 @@ class DetailPage extends Component {
         this.state = {
 
         }
+        this.renderVideo = this.renderVideo.bind(this);
     }
 
+    renderVideo(url){
+            return (<ReactPlayer url={url} playing />);
+    }
 
     render() {
         const cara_images = [];
         const { data, response } = this.props.location.state;
         let cards;
+        let video;
         if (data.carousel) {
             if (data.carousel.videos) {
                 data.carousel.videos.map((ev) => {
@@ -28,7 +33,12 @@ class DetailPage extends Component {
                     // embedUrl: 'https://www.youtube.com/embed/4pSzhZ76GdM?autoplay=1&showinfo=0',
                     // description: 'Render custom slides within the gallery',
                     // renderItem: this._renderVideo.bind(this)
-                    //cara_images.push({original: ev.thumbnail, thumbnail: ev.thumbnail, embedUrl: ev.high,renderItem: this._renderVideo()});
+                    //cara_images.push({original: ev.thumbnail, thumbnail: ev.thumbnail, embedUrl: ev.high,renderItem: <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' playing />});
+                    //console.log(ev);
+                    //https://scontent.cdninstagram.com/vp/b35820834df2ed19f6753b07d4b7a293/5D93F734/t51.2885-15/e35/s150x150/61822977_1250310961794747_2619449728594902503_n.jpg?_nc_ht=scontent.cdninstagram.com
+                    //<ReactPlayer url={ev.high} playing />
+                    //cara_images.push({thumbnail: 'https://scontent.cdninstagram.com/vp/b35820834df2ed19f6753b07d4b7a293/5D93F734/t51.2885-15/e35/s150x150/61822977_1250310961794747_2619449728594902503_n.jpg?_nc_ht=scontent.cdninstagram.com', original: 'https://scontent.cdninstagram.com/vp/b35820834df2ed19f6753b07d4b7a293/5D93F734/t51.2885-15/e35/s150x150/61822977_1250310961794747_2619449728594902503_n.jpg?_nc_ht=scontent.cdninstagram.com'});
+                    //video = <ReactPlayer url={ev.high} playing />
                 });
             }
 
@@ -52,6 +62,7 @@ class DetailPage extends Component {
                         <div className="w-size13 p-t-30 respon5">
                             <div className="wrap-slick3 flex-sb flex-w">
                                 <ImageGallery items={cara_images} />
+                                {/* {video} */}
                             </div>
                         </div>
                         <div className="w-size14 p-t-30 respon5">
@@ -60,7 +71,7 @@ class DetailPage extends Component {
                             </h4>
                             <span className="m-text17">
                                 {data.price} INR
-         </span>
+                            </span>
                             {
                                 data.description.map(e => <p className="s-text8 p-t-10">{e}</p>)
                             }
@@ -111,7 +122,7 @@ class DetailPage extends Component {
 
                                             <button className="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                                 Add to Cart
-                     </button>
+                                            a</button>
                                         </div>
                                     </div>
                                 </div>

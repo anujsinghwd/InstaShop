@@ -12,7 +12,7 @@ class Footer extends Component {
 
 				<div>
 					<p className="s-text7 w-size27">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						Any questions? Let us know 
 					</p>
 
 					<div className="flex-m p-t-30">
@@ -43,21 +43,21 @@ class Footer extends Component {
 						</a>
 					</li>
 
-					<li className="p-b-9">
+					{/* <li className="p-b-9">
 						<a href="#" className="s-text7">
 							Dresses
 						</a>
-					</li>
+					</li> */}
 
-					<li className="p-b-9">
+					{/* <li className="p-b-9">
 						<a href="#" className="s-text7">
 							Sunglasses
 						</a>
-					</li>
+					</li> */}
 				</ul>
 			</div>
 
-			<div className="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+			{/* <div className="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 				<h4 className="s-text12 p-b-30">
 					Links
 				</h4>
@@ -87,9 +87,9 @@ class Footer extends Component {
 						</a>
 					</li>
 				</ul>
-			</div>
+			</div> */}
 
-			<div className="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+			{/* <div className="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 				<h4 className="s-text12 p-b-30">
 					Help
 				</h4>
@@ -119,9 +119,9 @@ class Footer extends Component {
 						</a>
 					</li>
 				</ul>
-			</div>
+			</div> */}
 
-			<div className="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+			{/* <div className="w-size8 p-t-30 p-l-15 p-r-15 respon3">
 				<h4 className="s-text12 p-b-30">
 					Newsletter
 				</h4>
@@ -140,7 +140,7 @@ class Footer extends Component {
 					</div>
 
 				</form>
-			</div>
+			</div> */}
 		</div>
 
 		<div className="t-center p-l-15 p-r-15">
@@ -165,7 +165,7 @@ class Footer extends Component {
 			</a>
 
 			<div className="t-center s-text8 p-t-20">
-				Copyright © 2018 All rights reserved. | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+				Copyright © 2019 All rights reserved. | WishList :)
 			</div>
 		</div>
 	</footer>

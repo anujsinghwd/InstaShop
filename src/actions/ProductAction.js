@@ -4,7 +4,7 @@ import { GET_PRODUCTS, LOADING, GET_ERRORS } from './types';
 // GET Products List
 export const getProducts = () => dispatch => {
     dispatch(setProductsLoading());
-    axios.post('http://localhost:5000/api/posts', {})
+    axios.post('http://51.15.196.66:5000/api/posts', {})
         .then(res => {
             dispatch({
                 type: GET_PRODUCTS,
