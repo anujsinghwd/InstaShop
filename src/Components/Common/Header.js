@@ -34,11 +34,11 @@ class Header extends Component {
           <div className="wrap_header">
             <Link to={"/"} className="logo">
               {/* <img src="images/icons/logo.png" alt="IMG-LOGO" /> */}
-              <i class="fa fa-angellist"></i> <b>WishList</b>
+               <b>WishList </b><i class="fa fa-angellist"></i>
             </Link>
 
             <div className="wrap_menu">
-              <nav className="menu">
+              {/* <nav className="menu">
                 <ul className="main_menu">
                   <li>
                     <a href="index.html">Home</a>
@@ -79,7 +79,7 @@ class Header extends Component {
                     <a href="contact.html">Contact</a>
                   </li>
                 </ul>
-              </nav>
+              </nav> */}
             </div>
 
             <div className="header-icons">
@@ -181,7 +181,7 @@ class Header extends Component {
 
         <div className="wrap_header_mobile">
           <Link to={"/"} className="logo-mobile">
-            <i class="fa fa-angellist"></i> <b>WishList</b>
+          <b>WishList </b><i class="fa fa-angellist"></i> 
           </Link>
 
           <div className="btn-show-menu">
