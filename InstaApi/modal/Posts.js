@@ -60,7 +60,6 @@ function getPosts(params, callback) {
                 }
             }
             if(e.type === 'carousel'){
-                //let carousel_media;
                 let video = [];
                 let image = [];
                 e.carousel_media.map((cm) => {
@@ -82,7 +81,7 @@ function getPosts(params, callback) {
                     }
                 });
 
-                if(video.length, image.length){
+                if(video.length && image.length){
                     e.carousel_media.map((cm) => {
                         if(cm.type === 'image'){
                             images = {
