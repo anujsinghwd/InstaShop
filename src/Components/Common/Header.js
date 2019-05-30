@@ -16,16 +16,15 @@ class Header extends Component {
             </div>
 
             <span className="topbar-child1">
-              Free shipping for standard order over $100
+              Free shipping for all order
             </span>
 
             <div className="topbar-child2">
-              <span className="topbar-email">fashe@example.com</span>
+              <span className="topbar-email">help_wishlist@outlook.in</span>
 
               <div className="topbar-language rs1-select2">
                 <select className="selection-1" name="time">
-                  <option>USD</option>
-                  <option>EUR</option>
+                  <option>INR</option>
                 </select>
               </div>
             </div>
